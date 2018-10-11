@@ -1,3 +1,3 @@
 version: 1.0-preview-1
 steps:
-  - build: -t {{.Run.Registry}}/iis-docker-yaml:{{.Run.ID}} -f Dockerfile .
+  - build: -t {{.Run.Registry}}/iis-docker-yaml:{{.Run.ID}} -f ./nanoserver-sac2016/Dockerfile .
