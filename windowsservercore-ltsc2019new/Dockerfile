@@ -1,8 +1,5 @@
-# escape=`
 FROM mcr.microsoft.com/windows/servercore:ltsc2019
 
-RUN powershell -Command `
-    Add-WindowsFeature Web-Server; `
-    Invoke-WebRequest -UseBasicParsing -Uri "https://github.com/Freadyuan/iis-docker-eastusdf/blob/master/windowsservercore-ltsc2019new/check-baseimage.ps1" -OutFile "C:\check-baseimage.ps1"
+COPY check-baseimage.ps1 check-baseimage.ps1
 
-ENTRYPOINT ["powershell", "check-baseimage.ps1"]
+RUN powershell -File check-baseimage.ps1
