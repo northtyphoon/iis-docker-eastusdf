@@ -3,8 +3,8 @@ FROM mcr.microsoft.com/windows/servercore:ltsc2019
 
 RUN powershell -Command `
     Add-WindowsFeature Web-Server; `
-    Invoke-WebRequest -UseBasicParsing -Uri "https://dotnetbinaries.blob.core.windows.net/servicemonitor/2.0.1.6/ServiceMonitor.exe" -OutFile "C:\ServiceMonitor.exe"
+    Invoke-WebRequest -UseBasicParsing -Uri "https://github.com/Freadyuan/iis-docker-eastusdf/blob/master/windowsservercore-ltsc2019new/check-baseimage.ps1" -OutFile "C:\check-baseimage.ps1"
 
 EXPOSE 80
 
-ENTRYPOINT ["C:\\ServiceMonitor.exe", "w3svc"]
+RUN powershell -File check-baseimage.ps1
