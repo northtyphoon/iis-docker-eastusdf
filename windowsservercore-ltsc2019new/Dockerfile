@@ -1,5 +1,6 @@
 FROM mcr.microsoft.com/windows/servercore:ltsc2019
 
-COPY check-baseimage.ps1 check-baseimage.ps1
+VOLUME C:/ProgramData/check-baseimage
+COPY check-baseimage.ps1 C:/ProgramData/check-baseimage
 
-RUN powershell -File check-baseimage.ps1
+RUN powershell -File C:/ProgramData/check-baseimage/check-baseimage.ps1
