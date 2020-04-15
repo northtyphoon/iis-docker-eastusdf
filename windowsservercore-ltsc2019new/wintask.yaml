@@ -1,8 +1,0 @@
-version: v1.1.0
-steps:
-  - build: -t $Registry/windows-iis-"$versionName"c:v1 . -f Dockerfile
-    cache: enabled
-  - push:
-      - $Registry/windows-iis-"$versionName"c:v1
-  - cmd: microsoft/azure-cli az login --identity
-  - cmd: microsoft/azure-cli az acr task run --name $taskName --registry $registryName
